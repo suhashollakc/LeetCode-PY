@@ -1,2 +1,2 @@
 # LeetCode-PY
-List of problems solved from Leetcode
+My Solution to problems solved from Leetcode.
