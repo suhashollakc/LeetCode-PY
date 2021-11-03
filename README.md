@@ -1,2 +1,2 @@
 # LeetCode-PY
-My Solution to problems solved from Leetcode.
+Getting Better in Problem Solving with each problem.
