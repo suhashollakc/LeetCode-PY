@@ -1,18 +1,28 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        lo, hi = 0, len(numbers)-1
+        while True:
+            sum = numbers[lo] + numbers[hi]
+            if sum < target:
+                lo += 1
+            elif sum > target:
+                hi -= 1
+            else:
+                return [lo+1, hi+1]
+    
         
         
                 #Two Pointer Approach Variant 2
-        low,high = 0,len(numbers)-1
-        while low < high:
-            sum = numbers[low]+numbers[high]
-            if sum == target:
-                return [low+1,high+1]
-            elif sum < target:
-                low+=1
-            else:
-                high -= 1
-        return [-1,-1]
+#         low,high = 0,len(numbers)-1
+#         while low < high:
+#             sum = numbers[low]+numbers[high]
+#             if sum == target:
+#                 return [low+1,high+1]
+#             elif sum < target:
+#                 low+=1
+#             else:
+#                 high -= 1
+#         return [-1,-1]
         
         
 # One-Pass- Approach
@@ -29,14 +39,3 @@ class Solution:
 
 
 #Two Pointers Approach Variant 1
-    # def twoSum(self,s, target):
-    # lo, hi = 0, len(s)-1
-    # while True:
-    #     sums = s[lo] + s[hi]
-    #     if sums < target:
-    #         lo += 1
-    #     elif sums > target:
-    #         hi -= 1
-    #     else:
-    #         return [lo+1, hi+1]
-    
