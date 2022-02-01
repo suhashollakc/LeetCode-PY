@@ -9,22 +9,16 @@ class Solution:
          
 #         return sell
             
-        #Sliding Window Problem (Two Pointers)
-#         l,r = 0,1 #left -> Buying, right -> Selling
-#         maxP = 0
+ #       Sliding Window Problem (Two Pointers)
+        l,r = 0,1 #left -> Buying, right -> Selling
+        maxP = 0
         
-#         while r < len(prices):
-#             #profitable ?
-#             if prices[l] < prices[r]:
-#                 profit = prices[r] - prices[l]
-#                 maxP = max(maxP,profit)
-#             else:
-#                 l = r
-#             r += 1
-#         return maxP
-        res, min_so_far = 0, math.inf
-        
-        for p1 in prices:
-            res, min_so_far = max(res, p1 - min_so_far), min(min_so_far, p1)
-        
-        return res
+        while r < len(prices):
+            #profitable ?
+            if prices[l] < prices[r]:
+                profit = prices[r] - prices[l]
+                maxP = max(maxP,profit)
+            else:
+                l = r
+            r += 1
+        return maxP
