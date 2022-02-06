@@ -17,6 +17,9 @@ class Solution:
         # Otherwise, move the left boundary left = x+1
         
         # If not found, return False
+        
+        # Time COmplexity : O(logN)
+        # Space COmplexity: O(1)
         if num < 2:
             return True
         
