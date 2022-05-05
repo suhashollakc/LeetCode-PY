@@ -1,14 +1,10 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        """
-        :type s: str
-        :rtype: int
-        """
-        # build hash map : character and how often it appears
+        
+        #using hashmap and keeping count of all the charatcers. TC-> O(N), SC -> O(1)
         count = collections.Counter(s)
         
-        # find the index
         for idx, ch in enumerate(s):
             if count[ch] == 1:
-                return idx     
+                return idx
         return -1
