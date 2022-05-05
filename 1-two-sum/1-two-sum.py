@@ -1,23 +1,25 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # I have two solutions approach for this. One,
-        #Making an hash table and storing the elements with indexes and checking if the 
-        #complement is in the hashmap, if it is, we found the numbers, complement and hashmap key
+        #Problem Walk through
+        #Approach 
         
-        #Another one is assuming, the array is not sorted or any criteria regarding it,
-        #I will sort the array, then check the sum of two elements using no extra space
-        #and if sum matches the targetSum, we found the answer.
+        #1. Brute Force -> Loop through the array, check if array[i] + array[i+1] == target, if so return the index of the same
+#         for i in range(len(nums)):
+#             if nums[i] + nums[i+1] == target:
+#                 return [i,i+1]
+#         return []
         
-        #Approach 1. using hashmap
+        #2. Using Hashmap -> store the index as key and number as the value. Calculate the complement. if the complement in the hashmap and its not same as num, and num + complement == target, return the indices of both num and complement. else return none
         
         hashMap = {}
         
-        for value in range(len(nums)):
-            hashMap[nums[value]] = value
-        
         for i in range(len(nums)):
-            
+            hashMap[nums[i]] = i
+        for i in range(len(nums)):
             complement = target - nums[i]
-            
             if complement in hashMap and hashMap[complement] != i:
-                return [i,hashMap[complement]]
+                return [i, hashMap[complement]]
+        return []
+
+                
+            
