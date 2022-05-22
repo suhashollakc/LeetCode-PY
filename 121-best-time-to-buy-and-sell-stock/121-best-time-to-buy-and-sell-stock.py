@@ -1,24 +1,26 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-#         buy = float('-inf') #max cash balance after buying  stock
-#         sell = 0 #maximum cash balance after buying and selling a stock
+        # First, I would loop through prices and then loop further from i+ 1 to end of list
+        # calculate profit and compare profit with max_profit and update in each iteration. Return max_profit.
+        #Brute Force Approach O(n2) | O(1)
+        # max_profit = 0
+        # for i in range(len(prices) -1):
+        #     for j in range(i+ 1, len(prices)):
+        #         profit = prices[j] - prices[i]
+        #         if profit > max_profit:
+        #             max_profit = profit
+        # return max_profit
         
-#         for price in prices:
-#             buy = max(-price,buy) #max of buying earlier or now
-#             sell = max(price + buy,sell) #max of selling eaarlier or now
-         
-#         return sell
-            
- #       Sliding Window Problem (Two Pointers)
-        l,r = 0,1 #left -> Buying, right -> Selling
-        maxP = 0
+        #Approach 2: One Pass
+        min_price  =float('inf')
+        max_profit = 0
+        for i in range(len(prices)):
+            if prices[i] < min_price:
+                min_price = prices[i]
+            elif prices[i] - min_price > max_profit:
+                max_profit = prices[i] - min_price
+        return max_profit
+                
         
-        while r < len(prices):
-            #profitable ?
-            if prices[l] < prices[r]:
-                profit = prices[r] - prices[l]
-                maxP = max(maxP,profit)
-            else:
-                l = r
-            r += 1
-        return maxP
+        
+        
